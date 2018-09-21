@@ -7,15 +7,22 @@ import java.util.LinkedList;
 public class LectorCSV {
 
     private static String crearHTML(LinkedList<String[]> datos) {
-        String html = "<html><head></head><body><table>";
+        String html = "<html\n><head>\n</head>\n<body>\n<table>";
         for (String[] linea : datos) {
-            html += "<tr>";
-            for (String columna : linea) {
-                html += "<td>" + columna + "</td>";
+            html += "\n<tr>";
+            for (int i=0;i<linea.length-1;i++) {
+                switch (i){
+                    case 0: break;
+                    case 1: break;
+                    case 4: break;
+                    default:
+                        html += "\n<td>" + linea[i] + "</td>";
+                        break;
+                }
             }
-            html += "</tr>";
+            html += "\n</tr>";
         }
-        html += "</table></body></html>";
+        html += "\n</table>\n</body>\n</html>\n";
         return html;
     }
 
