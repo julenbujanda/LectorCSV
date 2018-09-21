@@ -10,13 +10,17 @@ public class LectorCSV {
         String html = "<html\n><head>\n</head>\n<body>\n<table>";
         for (String[] linea : datos) {
             html += "\n<tr>";
-            for (int i=0;i<linea.length-1;i++) {
-                switch (i){
-                    case 0: break;
-                    case 1: break;
-                    case 4: break;
+            for (int i = 0; i < linea.length - 1; i++) {
+                switch (i) {
+                    case 0:
+                        break;
+                    case 1:
+                        break;
+                    case 4:
+                        break;
                     default:
-                        html += "\n<td>" + linea[i] + "</td>";
+                        if (!linea[i + 1].equalsIgnoreCase("n")&&!linea[i].equalsIgnoreCase("v")&&!linea[i].equalsIgnoreCase("n"))
+                            html += "\n<td>" + linea[i] + "</td>";
                         break;
                 }
             }
@@ -49,7 +53,7 @@ public class LectorCSV {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        generarFichero("./",crearHTML(tabla));
+        generarFichero("./", crearHTML(tabla));
     }
 
 }
