@@ -8,21 +8,20 @@ public class LectorCSV {
 
     private static String crearHTML(LinkedList<String[]> datos) {
         String html = "<html\n><head>\n</head>\n<body>\n<table>";
-        for (String[] linea : datos) {
+        for (int x = 0; x < datos.size(); x++) {
             html += "\n<tr>";
-            for (int i = 0; i < linea.length - 1; i++) {
-                switch (i) {
-                    case 0:
-                        break;
-                    case 1:
-                        break;
-                    case 4:
-                        break;
-                    default:
-                        if (!linea[i + 1].equalsIgnoreCase("n")&&!linea[i].equalsIgnoreCase("v")&&!linea[i].equalsIgnoreCase("n"))
-                            html += "\n<td>" + linea[i] + "</td>";
-                        break;
+            for (int i = 0; i < datos.get(x).length - 1; i++) {
+                if (!(datos.get(x)[i].charAt(0) == 'V') && !datos.get(x)[i].equalsIgnoreCase("n") &&
+                        (i > 1) && (i != 4) && !((i >= 5) && (i <= 7)) && (i < 47))
+                    html += "\n<td>" + datos.get(x)[i] + "</td>";
+                else if (i == 5) {
+                    if (x > 0) {
+                        html += "<td>" + datos.get(x)[i + 2] + "/" + datos.get(x)[i + 1] + "/" + datos.get(x)[i] + "</td>";
+                    } else {
+                        html += "<td>FECHA</td>";
+                    }
                 }
+
             }
             html += "\n</tr>";
         }
