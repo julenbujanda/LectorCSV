@@ -10,7 +10,7 @@ public class LectorCSV {
     private static String crearHTML(LinkedList<String[]> datos, HashMap<Integer, String> magnitudes, HashMap<Integer, String> estaciones) {
         String html = "<html\n><head>\n<meta charset='UTF-8'>" +
                 "<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css\">\n" +
-                "</head>\n<body>\n<table>\n<thead>";
+                "</head>\n<body>\n<table class='centered'>\n<thead>";
         for (int x = 0; x < datos.size(); x++) {
             if (x == 1) {
                 html += "</thead><tbody>";
